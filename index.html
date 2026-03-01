@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn Risk Studio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="page">
+        <section class="hero">
+            <p class="eyebrow">Telecom Analytics</p>
+            <h1>Customer Churn Risk Studio</h1>
+            <p class="subtitle">
+                Enter subscriber profile details and get an instant churn probability score from your trained model.
+            </p>
+        </section>
+
+        <section class="panel">
+            <form id="churnForm" class="form" novalidate>
+                <div class="form-grid">
+                    <label>Tenure (months)
+                        <input type="number" name="tenure" min="0" step="1" required placeholder="e.g. 24">
+                    </label>
+
+                    <label>Monthly Charges
+                        <input type="number" name="MonthlyCharges" min="0" step="0.01" required placeholder="e.g. 89.50">
+                    </label>
+
+                    <label>Total Charges
+                        <input type="number" name="TotalCharges" min="0" step="0.01" required placeholder="e.g. 1520.00">
+                    </label>
+
+                    <label>Gender
+                        <select name="gender" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </label>
+
+                    <label>Senior Citizen
+                        <select name="SeniorCitizen" required>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </label>
+
+                    <label>Partner
+                        <select name="Partner" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </label>
+
+                    <label>Dependents
+                        <select name="Dependents" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </label>
+
+                    <label>Phone Service
+                        <select name="PhoneService" required>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </label>
+
+                    <label>Multiple Lines
+                        <select name="MultipleLines" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No phone service">No phone service</option>
+                        </select>
+                    </label>
+
+                    <label>Internet Service
+                        <select name="InternetService" required>
+                            <option value="DSL">DSL</option>
+                            <option value="Fiber optic">Fiber optic</option>
+                            <option value="No">No</option>
+                        </select>
+                    </label>
+
+                    <label>Online Security
+                        <select name="OnlineSecurity" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No internet service">No internet service</option>
+                        </select>
+                    </label>
+
+                    <label>Online Backup
+                        <select name="OnlineBackup" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No internet service">No internet service</option>
+                        </select>
+                    </label>
+
+                    <label>Device Protection
+                        <select name="DeviceProtection" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No internet service">No internet service</option>
+                        </select>
+                    </label>
+
+                    <label>Tech Support
+                        <select name="TechSupport" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No internet service">No internet service</option>
+                        </select>
+                    </label>
+
+                    <label>Streaming TV
+                        <select name="StreamingTV" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No internet service">No internet service</option>
+                        </select>
+                    </label>
+
+                    <label>Streaming Movies
+                        <select name="StreamingMovies" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No internet service">No internet service</option>
+                        </select>
+                    </label>
+
+                    <label>Contract
+                        <select name="Contract" required>
+                            <option value="Month-to-month">Month-to-month</option>
+                            <option value="One year">One year</option>
+                            <option value="Two year">Two year</option>
+                        </select>
+                    </label>
+
+                    <label>Paperless Billing
+                        <select name="PaperlessBilling" required>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </label>
+
+                    <label>Payment Method
+                        <select name="PaymentMethod" required>
+                            <option value="Electronic check">Electronic check</option>
+                            <option value="Mailed check">Mailed check</option>
+                            <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
+                            <option value="Credit card (automatic)">Credit card (automatic)</option>
+                        </select>
+                    </label>
+                </div>
+
+                <button type="submit" id="predictBtn">Predict Churn Risk</button>
+            </form>
+
+            <article id="result" class="result-box hidden" aria-live="polite"></article>
+            <p id="errorMessage" class="error-message hidden" aria-live="polite"></p>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
